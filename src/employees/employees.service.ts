@@ -33,7 +33,10 @@ export class EmployeesService {
     return await this.employeeRepository.delete({ id: id });
   }
 
-  async upsertEmployees(employees?: Employee[]) {
-    return await this.employeeRepository.upsert(employees, ['projectId']);
+  async upsertEmployees(employees?: CreateEmployeeDto[]) {
+    return await this.employeeRepository.upsert(employees, [
+      'firstName',
+      'lastName',
+    ]);
   }
 }

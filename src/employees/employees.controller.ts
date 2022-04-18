@@ -10,7 +10,6 @@ import {
 import { EmployeesService } from './employees.service';
 import { CreateEmployeeDto } from './dto/create-employee.dto';
 import { UpdateEmployeeDto } from './dto/update-employee.dto';
-import { Employee } from './entities/employee.entity';
 
 @Controller('employees')
 export class EmployeesController {
@@ -45,7 +44,7 @@ export class EmployeesController {
   }
 
   @Post('/upsert')
-  upsertData(@Body() employeeArray?: Employee[]) {
+  upsertData(@Body() employeeArray?: CreateEmployeeDto[]) {
     console.log(employeeArray);
     return this.employeesService.upsertEmployees(employeeArray);
   }
